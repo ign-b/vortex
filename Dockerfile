@@ -16,7 +16,7 @@ COPY src ./src
 RUN cargo install --locked --path .
 
 # Bundle Stage
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 RUN apt-get update && apt-get install -y libc6
 COPY --from=build /usr/local/cargo/bin/vortex ./vortex
